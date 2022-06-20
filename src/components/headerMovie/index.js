@@ -28,7 +28,7 @@ const MovieHeader = (props) => {
 
   return (
     <Paper component="div" className={classes.root}>
-  <IconButton aria-label="go back"  onClick={() => navigate(-1)}>
+      <IconButton aria-label="go back" onClick={() => navigate(-1)}>
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
@@ -40,7 +40,7 @@ const MovieHeader = (props) => {
         <br />
         <span className={classes.tagLine}>{`   "${movie.tagline}"`} </span>
       </Typography>
-      <IconButton aria-label="go forward"  onClick={() => navigate(1)}>
+      <IconButton aria-label="go forward" onClick={() => navigate(1)}>
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
     </Paper>
