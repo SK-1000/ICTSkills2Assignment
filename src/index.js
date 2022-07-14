@@ -5,6 +5,7 @@ import HomePage from "./pages/homePage";
 import UpComing from "./pages/upComing";
 import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
+import MustWatchPage from "./pages/mustWatchPage";
 import MovieReviewPage from "./pages/movieReviewPage"; //NEW
 import SiteHeader from "./components/siteHeader"; //NEW
 import MoviesContextProvider from "./contexts/moviesContext";
@@ -38,6 +39,10 @@ const App = () => {
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/movies/upComing" element={<UpComing />} />
+            <Route
+              path="/movies/mustwatch"
+              element={<MustWatchPage />}
+            />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </MoviesContextProvider>

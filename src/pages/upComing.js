@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import { getUpcomingMovies } from '../api/tmdb-api'
 // import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
-import PlaylistAddIcon from '../components/cardIcons/addToPlaylist'
+import AddToMustWatchIcon from '../components/cardIcons/addToMustWatch'
 
 const UpComing = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('upcoming', getUpcomingMovies)
@@ -19,10 +19,9 @@ const UpComing = (props) => {
   const upcomingMovies = data.results;
 
   // These three lines are redundant; we will replace them laterg.
-  //  const favourites = movies.filter(m => m.favouurite)
-  //  localStorage.setItem('favourites', JSON.stringify(favourites))
+  const mustwatchs = upcomingMovies.filter(m => m.mustwatch)
+  localStorage.setItem('mustwatchs', JSON.stringify(mustwatchs))
   //const addToFavourites = (movieId) => true 
-
 
   
   return (
@@ -30,10 +29,13 @@ const UpComing = (props) => {
       title="Discover UpcomingMovies"
       movies={upcomingMovies}
       action={(movie) => {
-        return <PlaylistAddIcon movie={movie} />
+        return <AddToMustWatchIcon movie={movie} />
+        
       }}
     />
+    
 );
+
 };
 
 export default UpComing;
