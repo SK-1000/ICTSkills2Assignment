@@ -41,8 +41,9 @@ const SiteHeader = () => {
 
   const open = Boolean(anchorEl);
   const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "Upcoming", path: "/movies/upcoming" },
+    { label: "Movies", path: "/" },
+    { label: "TV", path: "/tv" },
+    { label: "Upcoming Movies", path: "/movies/upcoming" },
     { label: "Favourites", path: "/movies/favourites" },
     { label: "Must Watch", path: "/movies/mustwatch" },
 
@@ -65,7 +66,7 @@ const SiteHeader = () => {
             TMDB Client
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            All you ever wanted to know about Movies!
+            All you ever wanted to know about Movies and TV Shows!
           </Typography>
           {isMobile ? (
             <>
