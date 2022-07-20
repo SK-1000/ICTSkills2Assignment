@@ -13,6 +13,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
