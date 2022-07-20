@@ -1,5 +1,5 @@
-import React from "react";
-import Header from "../components/headerMovieList";
+import React, { useState, useEffect } from "react";  // Changed
+import Header from "../components/headerTvList";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import TvList from "../components/tvList";
@@ -12,7 +12,22 @@ const useStyles = makeStyles({
 
 const TvListPage = (props) => {
   const classes = useStyles();
-  const tvShows = props.tvShows;
+  const [tvShows, setTvShows] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&page=1`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        return json.results;
+      })
+      .then((tvShows) => {
+        setTvShows(tvShows);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Grid container className={classes.root}>
@@ -20,7 +35,7 @@ const TvListPage = (props) => {
         <Header title={"TV Show Page"} />
       </Grid>
       <Grid item container spacing={5}>
-        <TvList tvShowss={tvShows}></TvList>
+        <TvList tvShows={tvShows}></TvList>
       </Grid>
     </Grid>
   );

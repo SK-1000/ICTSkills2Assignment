@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage";
+import TvShowPage from "./pages/tvShowPage";
 import UpComing from "./pages/upComing";
 import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
@@ -12,7 +13,16 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
+import TvPage from './pages/tvDetailsPage' //added temp for tv details
 
+// // added temp for tv images
+
+// const images = [
+//   "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+//   "/v1QQKq8M0fWxMgSdGOX1aCv8qMB.jpg",
+//   "/2iGN0aKHJYD0xQydlfuCUAcgNbO.jpg",
+//   "/rjBwhsOzHKUw2NIOrE7aMqjfe6s.jpg",
+// ]
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +49,8 @@ const App = () => {
             />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/tvShows/:id" element={<TvPage />} />
+            <Route path="/tv" element={<TvShowPage />} />
             <Route path="/movies/upComing" element={<UpComing />} />
             <Route
               path="/movies/mustwatch"
