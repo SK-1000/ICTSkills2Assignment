@@ -58,7 +58,7 @@ export default function TvCard(props) {
         </IconButton> 
         <Link to={`/tvShows/${tv.id}`}>
           <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+            About the Show ...
           </Button>
         </Link>
       </CardActions>
