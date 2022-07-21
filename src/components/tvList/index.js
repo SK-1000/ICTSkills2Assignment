@@ -5,7 +5,8 @@ import Grid from "@material-ui/core/Grid";
 const TvList = (props) => {
   let tvCards = props.tvShows.map((m) => (
     <Grid key={m.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
-      <Tv key={m.id} tv={m} />
+      {/* <Tv key={m.id} tv={m} /> */}
+      <Tv key={m.id} tv={m} selectFavourite={props.selectFavourite} />
     </Grid>
   ));
   return tvCards;
