@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
 import Drawer from "@material-ui/core/Drawer";
+import SimilarMovies from '../similarMovies'
 import MovieReviews from '../movieReviews'
 
 const useStyles = makeStyles((theme) => ({
@@ -35,10 +36,15 @@ const useStyles = makeStyles((theme) => ({
   chipLabel: {
     margin: theme.spacing(0.5),
   },
-  fab: {  //New
+  fabReview: {  //New
     position: "fixed",
     top: theme.spacing(15),
     right: theme.spacing(2),
+  },
+  fabSimilar: {  //New
+    position: "fixed",
+    top: theme.spacing(15),
+    left: theme.spacing(2),
   },
 }));
 
@@ -84,13 +90,25 @@ const MovieDetails = ( {movie}) => {
         color="secondary"
         variant="extended"
         onClick={() =>setDrawerOpen(true)}
-        className={classes.fab}
+        className={classes.fabReview}
       >
         <NavigationIcon />
         Reviews
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
+      </Drawer>
+      <Fab    
+        color="primary"
+        variant="extended"
+        onClick={() =>setDrawerOpen(true)}
+        className={classes.fabSimilar}
+      >
+        <NavigationIcon />
+        Similar Movies
+      </Fab>
+      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <SimilarMovies movie={movie} />
       </Drawer>
     </>
   );
