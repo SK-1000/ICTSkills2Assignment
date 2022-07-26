@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
@@ -8,10 +8,15 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 // New
 import NavigationIcon from "@material-ui/icons/Navigation";
-import Fab from "@material-ui/core/Fab";
-import Drawer from "@material-ui/core/Drawer";
-import SimilarMovies from '../similarMovies'
-import MovieReviews from '../movieReviews'
+import FabReview from "@material-ui/core/Fab";
+import DrawerReview from "@material-ui/core/Drawer";
+import MovieReviews from "../movieReviews";
+import { Link } from "react-router-dom";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
+import { excerpt } from "../../util";
+import { getSimilarMovies } from "../../api/tmdb-api";
+import { getMovieVideo } from "../../api/tmdb-api";
 
 const useStyles = makeStyles((theme) => ({
   chipRoot: {
@@ -36,21 +41,46 @@ const useStyles = makeStyles((theme) => ({
   chipLabel: {
     margin: theme.spacing(0.5),
   },
-  fabReview: {  //New
+  fabReview: {
+    //New
     position: "fixed",
     top: theme.spacing(15),
     right: theme.spacing(2),
   },
-  fabSimilar: {  //New
+  fabSimilar: {
+    //New
     position: "fixed",
     top: theme.spacing(15),
     left: theme.spacing(2),
   },
 }));
 
-const MovieDetails = ( {movie}) => {
+const MovieDetails = ({ movie }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false); // New
+  const [similarMovies, setSimilarMovies] = useState([]);
+  const [movieVideo, setMovieVideo] = useState([]);
+
+  useEffect(() => {
+    getSimilarMovies(movie.id).then((similarMovies) => {
+      setSimilarMovies(similarMovies);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  
+
+  useEffect(() => {
+    getMovieVideo(movie.id).then((movieVideo) => {
+      setMovieVideo(movieVideo);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+
+
+
+
 
   return (
     <>
@@ -62,55 +92,72 @@ const MovieDetails = ( {movie}) => {
         {movie.overview}
       </Typography>
       <div className={classes.chipRoot}>
-      <Paper component="ul" className={classes.chipSet}>
-        <li>
-          <Chip label="Genres" className={classes.chipLabel} color="primary" />
-        </li>
-        {movie.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
+        <Paper component="ul" className={classes.chipSet}>
+          <li>
+            <Chip
+              label="Genres"
+              className={classes.chipLabel}
+              color="primary"
+            />
           </li>
-        ))}
-      </Paper>
-      <Paper component="ul" className={classes.chipSet}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${movie.revenue.toLocaleString()}`}
-        />
-        <Chip
-          icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count}`}
-        />
-        <Chip label={`Released: ${movie.release_date}`} />
-      </Paper>
+          {movie.genres.map((g) => (
+            <li key={g.name}>
+              <Chip label={g.name} className={classes.chip} />
+            </li>
+          ))}
+        </Paper>
+        <Paper component="ul" className={classes.chipSet}>
+          <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+          <Chip
+            icon={<MonetizationIcon />}
+            label={`${movie.revenue.toLocaleString()}`}
+          />
+          <Chip
+            icon={<StarRate />}
+            label={`${movie.vote_average} (${movie.vote_count}`}
+          />
+          <Chip label={`Released: ${movie.release_date}`} />
+        </Paper>
       </div>
       {/* New */}
-      <Fab    
+      <FabReview
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
+        onClick={() => setDrawerOpen(true)}
         className={classes.fabReview}
       >
         <NavigationIcon />
         Reviews
-      </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
-      </Drawer>
-      <Fab    
-        color="primary"
-        variant="extended"
-        onClick={() =>setDrawerOpen(true)}
-        className={classes.fabSimilar}
+      </FabReview>
+      <DrawerReview
+        anchor="top"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
       >
-        <NavigationIcon />
-        Similar Movies
-      </Fab>
-      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <SimilarMovies movie={movie} />
-      </Drawer>
+        <MovieReviews movie={movie} />
+      </DrawerReview>
+      <h2> Similar movies you may be interested in..</h2>
+      {similarMovies.map((s) => (
+            <TableRow key={s.id}>
+              <TableCell component="th" scope="row">
+                {s.title}
+              </TableCell>
+              <TableCell >{excerpt(s.overview)}</TableCell>
+              <TableCell >
+                <Link
+                  to={`/movieVideo/${s.id}`}
+                  state={{
+                    movieVideo: s,
+                    movie: movie,
+                  }}
+                >
+                  Click here to see video
+                </Link>
+              </TableCell>
+            </TableRow>
+          ))}
+     
     </>
   );
 };
-export default  MovieDetails ;
+export default MovieDetails;
