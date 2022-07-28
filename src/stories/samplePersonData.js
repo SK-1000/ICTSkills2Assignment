@@ -1,27 +1,71 @@
-export default {
-    "birthday": "1963-12-18",
-    "known_for_department": "Acting",
-    "deathday": null,
-    "id": 287,
-    "name": "Brad Pitt",
-    "also_known_as": [
-       "برد پیت",
-       "Бред Питт",
-       "Бред Пітт",
-       "Buratto Pitto",
-       "Брэд Питт",
-       "畢·彼特",
-       "ブラッド・ピット",
-       "브래드 피트",
-       "براد بيت",
-       "แบรด พิตต์"
-    ],
-    "gender": 2,
-    "biography": "William Bradley \"Brad\" Pitt (born December 18, 1963) is an American actor and film producer. Pitt has received two Academy Award nominations and four Golden Globe Award nominations, winning one. He has been described as one of the world's most attractive men, a label for which he has received substantial media attention. Pitt began his acting career with television guest appearances, including a role on the CBS prime-time soap opera Dallas in 1987. He later gained recognition as the cowboy hitchhiker who seduces Geena Davis's character in the 1991 road movie Thelma & Louise. Pitt's first leading roles in big-budget productions came with A River Runs Through It (1992) and Interview with the Vampire (1994). He was cast opposite Anthony Hopkins in the 1994 drama Legends of the Fall, which earned him his first Golden Globe nomination. In 1995 he gave critically acclaimed performances in the crime thriller Seven and the science fiction film 12 Monkeys, the latter securing him a Golden Globe Award for Best Supporting Actor and an Academy Award nomination.\n\nFour years later, in 1999, Pitt starred in the cult hit Fight Club. He then starred in the major international hit as Rusty Ryan in Ocean's Eleven (2001) and its sequels, Ocean's Twelve (2004) and Ocean's Thirteen (2007). His greatest commercial successes have been Troy (2004) and Mr. & Mrs. Smith (2005).\n\nPitt received his second Academy Award nomination for his title role performance in the 2008 film The Curious Case of Benjamin Button. Following a high-profile relationship with actress Gwyneth Paltrow, Pitt was married to actress Jennifer Aniston for five years. Pitt lives with actress Angelina Jolie in a relationship that has generated wide publicity. He and Jolie have six children—Maddox, Pax, Zahara, Shiloh, Knox, and Vivienne.\n\nSince beginning his relationship with Jolie, he has become increasingly involved in social issues both in the United States and internationally. Pitt owns a production company named Plan B Entertainment, whose productions include the 2007 Academy Award winning Best Picture, The Departed.",
-    "popularity": 10.647,
-    "place_of_birth": "Shawnee, Oklahoma, USA",
-    "profile_path": "/kU3B75TyRiCgE270EyZnHjfivoq.jpg",
+export default 
+{
     "adult": false,
-    "imdb_id": "nm0000093",
-    "homepage": null
- }
+    "gender": 1,
+    "id": 224513,
+    "known_for": [
+    {
+    "adult": false,
+    "backdrop_path": "/sAtoMqDVhNDQBc3QJL3RF6hlhGq.jpg",
+    "genre_ids": [
+    878,
+    18
+    ],
+    "id": 335984,
+    "media_type": "movie",
+    "original_language": "en",
+    "original_title": "Blade Runner 2049",
+    "overview": "Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.",
+    "poster_path": "/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+    "release_date": "2017-10-04",
+    "title": "Blade Runner 2049",
+    "video": false,
+    "vote_average": 7.5,
+    "vote_count": 10907
+    },
+    {
+    "adult": false,
+    "backdrop_path": "/4HWAQu28e2yaWrtupFPGFkdNU7V.jpg",
+    "genre_ids": [
+    35,
+    80,
+    9648
+    ],
+    "id": 546554,
+    "media_type": "movie",
+    "original_language": "en",
+    "original_title": "Knives Out",
+    "overview": "When renowned crime novelist Harlan Thrombey is found dead at his estate just after his 85th birthday, the inquisitive and debonair Detective Benoit Blanc is mysteriously enlisted to investigate. From Harlan's dysfunctional family to his devoted staff, Blanc sifts through a web of red herrings and self-serving lies to uncover the truth behind Harlan's untimely death.",
+    "poster_path": "/pThyQovXQrw2m0s9x82twj48Jq4.jpg",
+    "release_date": "2019-11-27",
+    "title": "Knives Out",
+    "video": false,
+    "vote_average": 7.9,
+    "vote_count": 9044
+    },
+    {
+    "adult": false,
+    "backdrop_path": "/r2GAjd4rNOHJh6i6Y0FntmYuPQW.jpg",
+    "genre_ids": [
+    12,
+    28,
+    53
+    ],
+    "id": 370172,
+    "media_type": "movie",
+    "original_language": "en",
+    "original_title": "No Time to Die",
+    "overview": "Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
+    "poster_path": "/xp5s0aLHZuoHH64DDYNy0jLRrRH.jpg",
+    "release_date": "2021-09-29",
+    "title": "No Time to Die",
+    "video": false,
+    "vote_average": 7.5,
+    "vote_count": 4375
+    }
+    ],
+    "known_for_department": "Acting",
+    "name": "Ana de Armas",
+    "popularity": 367.316,
+    "profile_path": "/14uxt0jH28J9zn4vNQNTae3Bmr7.jpg"
+    }

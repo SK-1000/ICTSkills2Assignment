@@ -57,16 +57,18 @@ const PersonDetails = ( props) => {
         ))}
       </Paper> */}
       <Paper component="ul" className={classes.chipSet}>
-        <Chip icon={<AccessTimeIcon />} label={`Birthday:${person.birthday}`} />
+      
+
         <Chip
           icon={<MonetizationIcon />}
           label={`Known for:${person.known_for_department}`}
         />
         <Chip
+        
           icon={<StarRate />}
           label={`Popularity Rating:${person.popularity}`}
         />
-        <Chip label={`Born: ${person.place_of_birth}`} />
+ 
       </Paper>
       </div>
       </>
