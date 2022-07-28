@@ -15,6 +15,8 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TvPage from './pages/tvDetailsPage' //added temp for tv details
+import PersonPage from "./pages/personPage";
+import PersonDetailsPage from "./pages/personDetailsPage";
 
 // // added temp for tv images
 
@@ -50,7 +52,9 @@ const App = () => {
               element={<FavouriteMoviesPage />}
             />
             <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/persons/:id" element={<PersonDetailsPage />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/persons" element={<PersonPage />} />
             <Route path="/tvShows/:id" element={<TvPage />} />
             <Route path="/tv" element={<TvShowPage />} />
             <Route path="/movies/upComing" element={<UpComing />} />

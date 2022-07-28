@@ -60,7 +60,7 @@ const SiteHeader = () => {
   return ( 
     <>
       <AppBar className={classes.appbar}
-      position="fixed" elevation={0} color='primary'> 
+      position="fixed" elevation={0} color='secondary'> 
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
             TMDB Client
