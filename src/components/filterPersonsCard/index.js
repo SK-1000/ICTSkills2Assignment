@@ -35,7 +35,7 @@ export default function FilterPersonsCard(props) {
   return (
     <>
     <Card className={classes.root} variant="outlined">
-      <CardContent>
+      {/* <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
           Filter People.
@@ -62,14 +62,29 @@ export default function FilterPersonsCard(props) {
             })}
           </Select>
         </FormControl>
-      </CardContent>
+      </CardContent> */}
     </Card>
     <Card className={classes.root} variant="outlined">
         <CardContent>
           <Typography variant="h5" component="h1">
             <SearchIcon fontSize="large" />
-            Sort the People.
+            Sort People by.
           </Typography>
+        <FormControl className={classes.formControl}>
+          <InputLabel id="sort-label">Sort by this selection:</InputLabel>
+          <Select
+            labelId="sort-label"
+            id="sort-select"
+          >
+            {knownfors.map((sort) => {
+              return (
+                <MenuItem key={sort.id} value={sort.id}>
+                  {sort.title}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
         </CardContent>
       </Card>
       </>
