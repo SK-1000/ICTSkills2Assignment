@@ -11,6 +11,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -53,9 +54,11 @@ export default function PersonCard(props) {
         <IconButton aria-label="add to favorites" onClick={null}>
           <FavoriteIcon color="primary" fontSize="large" />
         </IconButton>
-        <Button variant="outlined" size="medium" color="primary">
+        <Link to={`/persons/${person.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
           More Info on this person ...
-        </Button>
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

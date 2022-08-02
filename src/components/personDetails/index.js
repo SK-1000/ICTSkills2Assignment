@@ -1,8 +1,9 @@
 import React from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
+// import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import MonetizationIcon from "@material-ui/icons/MonetizationOn";
+
 import StarRate from "@material-ui/icons/StarRate";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -39,8 +40,18 @@ const PersonDetails = ( props) => {
   return (
     <>
       <Typography variant="h5" component="h3">
+        This Actor is known for: FIGURE OUT HOW TO ADD LIST OF KNOWN OF MOVIES SIMILAR LAYOUT TO MOVIE REVIEW PAGE
+      </Typography>
+
+      <Typography variant="h6" component="p">
+        {person.known_for_department}
+      </Typography>
+
+
+      <Typography variant="h5" component="h3">
         Biography
       </Typography>
+      
 
       <Typography variant="h6" component="p">
         {person.biography}
