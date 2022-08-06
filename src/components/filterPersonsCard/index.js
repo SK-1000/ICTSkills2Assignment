@@ -32,6 +32,15 @@ export default function FilterPersonsCard(props) {
     {id: 3, title: "The Devils Advocate"}
   ]
 
+  const handleChange = (e, type, value) => {
+    e.preventDefault()
+    props.onUserInput(type, value)   // NEW
+  }
+
+  const handleNameChange = e => {
+    handleChange(e, "name", e.target.value)
+  };
+
   return (
     <>
     <Card className={classes.root} variant="outlined">
@@ -75,6 +84,8 @@ export default function FilterPersonsCard(props) {
           <Select
             labelId="sort-label"
             id="sort-select"
+            value={props.nameSort}
+            onChange={handleNameChange}
           >
             {knownfors.map((sort) => {
               return (

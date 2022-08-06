@@ -4,16 +4,52 @@ import Header from "../components/headerPersonList";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import PersonList from "../components/personList";
+import SortCard from "../components/filterPersonsCard";
+import Fab from "@material-ui/core/Fab";
+import Drawer from "@material-ui/core/Drawer";
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "20px",
+    padding: "60px",
   },
-});
+  fab: {
+    marginTop: theme.spacing(8),
+    position: "fixed",
+    top: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+}));
 
 const PersonListPage = (props) => {
   const classes = useStyles();
   const [persons, setPersons] = useState([]);
+  const [nameSort, setNameSort] = useState("0");
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+
+  let displayedPersons = persons
+    .sort((p) => {
+      return p.name.toLowerCase().search(nameSort.toLowerCase()) !== -1;
+    });
+    
+
+    const handleChange = (type, value) => {
+      if (type === "name") setNameSort(value);
+      else setNameSort(value);
+    };
+  
+
+    const addToFavourites = (personId) => {
+      const updatedPersons = persons.map((p) =>
+        p.id === personId ? { ...p, favourite: true } : p
+      );
+      setPersons(updatedPersons);
+    };
+
+
+
+
 
   useEffect(() => {
     fetch(
@@ -32,14 +68,40 @@ const PersonListPage = (props) => {
   }, []);
 
   return (
+    <>
     <Grid container className={classes.root}>
       <Grid item xs={12}>
         <Header title={"Person Page"} />
       </Grid>
       <Grid item container spacing={5}>
-        <PersonList persons={persons}></PersonList>
+      
+        <PersonList persons={displayedPersons} selectFavourite={addToFavourites} />
       </Grid>
     </Grid>
-  );
+
+    <Fab
+    color="primary"
+    
+    variant="extended"
+    onClick={() => setDrawerOpen(true)}
+    className={classes.fab}
+    >
+    Sort People
+    </Fab>
+
+    <Drawer
+            anchor="left"
+            open={drawerOpen}
+            onClose={() => setDrawerOpen(false)}
+          >
+            <SortCard
+              onUserInput={handleChange}
+              nameSort={nameSort}
+      
+            />
+          </Drawer>
+        </>
+        
+      );
 };
 export default PersonListPage;

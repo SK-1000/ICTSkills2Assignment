@@ -12,6 +12,7 @@ import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -21,12 +22,33 @@ const useStyles = makeStyles({
   },
 });
 
+
+
 export default function PersonCard(props) {
   const classes = useStyles();
   const person = props.person;
+  
+  const handleAddToFavourite = (e) => {
+    e.preventDefault();
+    props.selectFavourite(person.id);
+    };
   return (
     <Card className={classes.card}>
-      <CardHeader className={classes.header} title={person.name} />
+      <CardHeader
+      className={classes.header}
+      avatar={
+        person.favourite ? (
+          <Avatar className={classes.avatar}>
+            <FavoriteIcon />
+          </Avatar>
+        ) : null
+      }
+      name={
+        <Typography variant="h5" component="p">
+          {person.name}{" "}
+        </Typography>
+      }
+    />
       <CardMedia
         className={classes.media}
         image={
@@ -51,9 +73,13 @@ export default function PersonCard(props) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={null}>
+        {/* <IconButton aria-label="add to favorites" onClick={null}>
           <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
+        </IconButton> */}
+
+    <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
+        <FavoriteIcon color="primary" fontSize="large" />
+    </IconButton>
         <Link to={`/persons/${person.id}`}>
           <Button variant="outlined" size="medium" color="primary">
           More Info on this person ...

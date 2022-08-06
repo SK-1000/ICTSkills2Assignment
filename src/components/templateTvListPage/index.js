@@ -9,7 +9,7 @@ import TvList from "../tvList";
 
 const useStyles = makeStyles((theme) =>  ({
   root: {
-    padding: "20px",
+    padding: "60px",
   },
   fab: {
     marginTop: theme.spacing(8),

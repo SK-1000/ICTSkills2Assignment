@@ -15,7 +15,7 @@ import TvHeader from "../components/headerTv";
 
 const useStyles = makeStyles({
     root: {
-      padding: "20px",
+      padding: "60px",
     },
   });
 
