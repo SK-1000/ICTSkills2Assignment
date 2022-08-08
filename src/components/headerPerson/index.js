@@ -29,7 +29,7 @@ const PersonHeader = (props) => {
       <IconButton aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
-
+   
       <Typography variant="h4" component="h3">
         {person.name}
         <a href={person.homepage}>

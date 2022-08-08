@@ -3,6 +3,7 @@ import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 // import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import MonetizationIcon from "@material-ui/icons/MonetizationOn";
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import StarRate from "@material-ui/icons/StarRate";
 import Typography from "@material-ui/core/Typography";
@@ -40,12 +41,10 @@ const PersonDetails = ( props) => {
   return (
     <>
       <Typography variant="h5" component="h3">
-        This Actor is known for: FIGURE OUT HOW TO ADD LIST OF KNOWN OF MOVIES SIMILAR LAYOUT TO MOVIE REVIEW PAGE
+        This Person is known for: {person.known_for_department}
       </Typography>
 
-      <Typography variant="h6" component="p">
-        {person.known_for_department}
-      </Typography>
+  
 
 
       <Typography variant="h5" component="h3">
@@ -71,7 +70,7 @@ const PersonDetails = ( props) => {
       
 
         <Chip
-          icon={<MonetizationIcon />}
+          icon={<HelpOutlineIcon />}
           label={`Known for:${person.known_for_department}`}
         />
         <Chip
