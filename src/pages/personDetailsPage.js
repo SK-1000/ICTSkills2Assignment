@@ -4,6 +4,7 @@ import PersonHeader from "../components/headerPerson/";
 import PersonDetails from "../components/personDetails/";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import { getPerson, getPersonImages } from "../api/tmdb-api";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,33 +23,18 @@ const PersonPage = (props) => {
   const classes = useStyles();
   const { id } = useParams();
   const [person, setPerson] = useState(null);
-  const [images, setImages] = useState([]);
+  const [, setImages] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-      
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((person) => {
-         console.log(person)
-        setPerson(person);
-      });
+    getPerson(id).then((person) => {
+      setPerson(person);
+    });
   }, [id]);
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/person/${id}/tagged_images?api_key=${process.env.REACT_APP_TMDB_KEY}`
-      
-    )
-      .then((res) => res.json())
-      .then((json) => json.poster_path)
-      .then((images) => {
-        console.log(images)
-        setImages(images);
-      });
+    getPersonImages(id).then((images) => {
+      setImages(images);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

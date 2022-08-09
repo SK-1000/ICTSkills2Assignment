@@ -77,9 +77,6 @@ export default function PersonCard(props) {
           <FavoriteIcon color="primary" fontSize="large" />
         </IconButton> */}
 
-    <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
-        <FavoriteIcon color="primary" fontSize="large" />
-    </IconButton>
         <Link to={`/persons/${person.id}`}>
           <Button variant="outlined" size="medium" color="primary">
           More Info on this person ...
