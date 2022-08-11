@@ -116,7 +116,7 @@ export const getTv = (args) => {
 
   export const getPersonImages = (id) => {
     return fetch(
-      `https://api.themoviedb.org/3/person/${id}/tagged_images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+       `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
       )
       .then((res) => res.json())
       .then((json) => json.posters);
@@ -206,5 +206,16 @@ export const getTv = (args) => {
         .then((json) => {
           // console.log(json.results);
           return json.results;
+        });
+    };
+
+    export const getPersonCredits = (id) => {
+      return fetch(
+        `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      )
+        .then((res) => res.json())
+        .then((json) => {
+          // console.log(json.results);
+          return json.cast;
         });
     };

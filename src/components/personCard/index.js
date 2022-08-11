@@ -13,6 +13,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+
+
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -24,18 +27,18 @@ const useStyles = makeStyles({
 
 
 
-export default function PersonCard(props) {
+export default function PersonCard({person}) {
   const classes = useStyles();
-  const person = props.person;
+  // const person = props.person;
   
-  const handleAddToFavourite = (e) => {
-    e.preventDefault();
-    props.selectFavourite(person.id);
-    };
+  // const handleAddToFavourite = (e) => {
+  //   e.preventDefault();
+  //   props.selectFavourite(person.id);
+  //   };
   return (
     <Card className={classes.card}>
       <CardHeader
-      className={classes.header}
+      className={classes.header} name={person.name} />
       avatar={
         person.favourite ? (
           <Avatar className={classes.avatar}>
@@ -67,7 +70,8 @@ export default function PersonCard(props) {
           </Grid>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
-              {"  "} {person.polularity}{" "}
+            <VolunteerActivismIcon fontSize="small" />
+              {"  "} {person.popularity}{" "}
             </Typography>
           </Grid>
         </Grid>

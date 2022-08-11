@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
-// import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import MonetizationIcon from "@material-ui/icons/MonetizationOn";
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-
 import StarRate from "@material-ui/icons/StarRate";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import NavigationIcon from "@material-ui/icons/Navigation";
+import Fab from "@material-ui/core/Fab";
+import Drawer from "@material-ui/core/Drawer";
+import PersonCredits from '../personCredits'
 
 const useStyles = makeStyles((theme) => ({
   chipRoot: {
@@ -32,11 +33,17 @@ const useStyles = makeStyles((theme) => ({
   chipLabel: {
     margin: theme.spacing(0.5),
   },
+  fab: {  //New
+    position: "fixed",
+    top: theme.spacing(15),
+    right: theme.spacing(2),
+  },
 }));
 
-const PersonDetails = ( props) => {
+const PersonDetails = ({person}) => {
   const classes = useStyles();
-  const person = props.person
+  // const person = props.person
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
@@ -81,6 +88,19 @@ const PersonDetails = ( props) => {
  
       </Paper>
       </div>
+
+      <Fab    
+        color="secondary"
+        variant="extended"
+        onClick={() =>setDrawerOpen(true)}
+        className={classes.fab}
+      >
+        <NavigationIcon />
+        Credits
+      </Fab>
+      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <PersonCredits person={person} />
+      </Drawer>
       </>
   );
 };

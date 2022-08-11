@@ -24,6 +24,7 @@ const PersonPage = (props) => {
   return (
     <PageTemplate
       title='Discover People'
+      
       persons={persons}
       selectFavourite={addToFavourites}
     />
