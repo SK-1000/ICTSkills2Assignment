@@ -39,19 +39,19 @@ export default function PersonCard({person}) {
     <Card className={classes.card}>
       <CardHeader
       className={classes.header} name={person.name} />
-      avatar={
+      {
         person.favourite ? (
           <Avatar className={classes.avatar}>
             <FavoriteIcon />
           </Avatar>
         ) : null
       }
-      name={
+      {
         <Typography variant="h5" component="p">
           {person.name}{" "}
         </Typography>
       }
-    />
+    
       <CardMedia
         className={classes.media}
         image={
