@@ -8,6 +8,7 @@ import { getPersonImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(7),

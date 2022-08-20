@@ -9,8 +9,12 @@ import Drawer from "@material-ui/core/Drawer";
 
 
 const useStyles = makeStyles((theme) => ({
+  // root: {
+  //   padding: "60px",
+  // },
   root: {
-    padding: "60px",
+    backgroundColor: "#bfbfbf",
+    paddingTop: theme.spacing(7),
   },
   fab: {
     marginTop: theme.spacing(8),

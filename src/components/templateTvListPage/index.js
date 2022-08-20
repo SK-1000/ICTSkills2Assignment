@@ -8,8 +8,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import TvList from "../tvList";
 
 const useStyles = makeStyles((theme) =>  ({
+  // 
   root: {
-    padding: "60px",
+    backgroundColor: "#bfbfbf",
+    paddingTop: theme.spacing(7),
   },
   fab: {
     marginTop: theme.spacing(8),
