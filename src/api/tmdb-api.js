@@ -114,13 +114,24 @@ export const getTv = (args) => {
   };
 
 
-  export const getPersonImages = (id) => {
+
+  export const getPersonImages = ({ queryKey }) => {
+    const [, idPart] = queryKey;
+    const { id } = idPart;
     return fetch(
-       `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
-      )
-      .then((res) => res.json())
-      .then((json) => json.posters);
+      `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    ).then( (response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+  
+    })
+    .catch((error) => {
+      throw error
+   });
   };
+
 
   export const getTvImages = ({ queryKey }) => {
     const [, idPart] = queryKey;
@@ -156,7 +167,7 @@ export const getTv = (args) => {
     )
       .then((res) => res.json())
       .then((json) => {
-        // console.log(json.results);
+      console.log(json.results);
         return json.results;
       });
   };

@@ -17,6 +17,9 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TvPage from './pages/tvDetailsPage' //added temp for tv details
 import PersonPage from "./pages/personPage";
 import PersonDetailsPage from "./pages/personDetailsPage";
+import ProtectedRoute from "./components/protectedRoute/protectedRoute";
+import AuthProvider from "./contexts/authContext";
+import LoginPage from "./pages/loginPage";
 
 // // added temp for tv images
 
@@ -41,15 +44,19 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      <AuthProvider>
         <SiteHeader /> {/* New Header  */}
         <MoviesContextProvider>
           <Routes>
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/movieVideo/:id" element={<MovieVideoPage />} />
-            <Route
-              path="/movies/favourites"
-              element={<FavouriteMoviesPage />}
+            <Route path="/movies/favourites" element={
+              <ProtectedRoute>
+                <FavouriteMoviesPage />
+              </ProtectedRoute>
+            } 
             />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/persons/:id" element={<PersonDetailsPage />} />
@@ -57,14 +64,17 @@ const App = () => {
             <Route path="/persons" element={<PersonPage />} />
             <Route path="/tvShows/:id" element={<TvPage />} />
             <Route path="/tv" element={<TvShowPage />} />
-            <Route path="/movies/upComing" element={<UpComing />} />
-            <Route
-              path="/movies/mustwatch"
-              element={<MustWatchPage />}
+            <Route path="/movies/upComing" element={
+              <ProtectedRoute>
+                <UpComing />
+              </ProtectedRoute>
+            } 
             />
+            <Route path="/movies/mustwatch" element={<MustWatchPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </MoviesContextProvider>
+        </AuthProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

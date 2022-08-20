@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -11,6 +11,7 @@ import Menu from "@material-ui/core/Menu";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { AuthContext } from "../../contexts/authContext";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -38,6 +39,8 @@ const SiteHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { token, signout } = useContext(AuthContext);
+  
 
   const open = Boolean(anchorEl);
   const menuOptions = [
@@ -63,12 +66,24 @@ const SiteHeader = () => {
       <AppBar className={classes.appbar}
       position="fixed" elevation={0} color='secondary'> 
         <Toolbar>
-          <Typography variant="h4" className={classes.title}>
-            TMDB Client
+        {token ? (
+        <p>
+          Welcome! <button onClick={() => signout()}>Sign out</button>
+        </p>
+      ) : (
+        <p>
+          You are not logged in{" "}
+          <button onClick={() => navigate("login")}>Login</button>
+        </p>
+      )}
+
+          <Typography variant="h6" className={classes.title}>
+            
           </Typography>
           <Typography variant="h6" className={classes.title}>
             All you ever wanted to know about Movies and TV Shows!
           </Typography>
+          
           {isMobile ? (
             <>
               <IconButton
@@ -121,6 +136,7 @@ const SiteHeader = () => {
                 </NavLink> 
               ))}
             </>
+            
           )}
         </Toolbar>
       </AppBar>
