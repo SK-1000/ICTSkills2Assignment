@@ -40,11 +40,27 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import PersonDetails from "../components/personDetails";
 import PageTemplate from "../components/templatePersonPage";
-import usePerson from "../hooks/usePerson";
+// import usePerson from "../hooks/usePerson";
+import { getPerson } from '../api/tmdb-api'
+import { useQuery } from "react-query";
+import Spinner from '../components/spinner'
 
-const PersonDetailsPage = (props) => {
+const PersonDetailsPage = () => {
   const { id } = useParams();
-  const [person] = usePerson(id);  // New
+  // const [person] = usePerson(id);  // New
+  const { data: person, error, isLoading, isError } = useQuery(
+    ["person", { id: id }],
+    getPerson
+  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+  
 
   return (
     <>
