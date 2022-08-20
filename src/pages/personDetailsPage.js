@@ -1,20 +1,50 @@
 
 
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import PersonDetails from "../components/personDetails";
+// import PageTemplate from "../components/templatePersonPage";
+// import { getPerson } from "../api/tmdb-api";
+
+// const PersonDetailsPage = (props) => {
+//   const { id } = useParams();
+//   const [person, setPerson] = useState(null);
+
+//   useEffect(() => {
+//     getPerson(id).then((person) => {
+//       setPerson(person);
+//     });
+//   }, [id]);
+
+//   return (
+//     <>
+//       {person ? (
+//         <>
+//           <PageTemplate person={person}>
+//             <PersonDetails person={person} />
+//           </PageTemplate>
+//         </>
+//       ) : (
+//         <p>Waiting for person details</p>
+//       )}
+//     </>
+//   );
+// };
+
+// export default PersonDetailsPage;
+
+
+
+
+import React from "react";
 import { useParams } from "react-router-dom";
 import PersonDetails from "../components/personDetails";
 import PageTemplate from "../components/templatePersonPage";
-import { getPerson } from "../api/tmdb-api";
+import usePerson from "../hooks/usePerson";
 
 const PersonDetailsPage = (props) => {
   const { id } = useParams();
-  const [person, setPerson] = useState(null);
-
-  useEffect(() => {
-    getPerson(id).then((person) => {
-      setPerson(person);
-    });
-  }, [id]);
+  const [person] = usePerson(id);  // New
 
   return (
     <>
@@ -25,18 +55,13 @@ const PersonDetailsPage = (props) => {
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for person details</p>
+        <p>Waiting for Person details</p>
       )}
     </>
   );
 };
 
 export default PersonDetailsPage;
-
-
-
-
-
 
 
 

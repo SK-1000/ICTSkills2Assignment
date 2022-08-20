@@ -21,6 +21,7 @@ import ProtectedRoute from "./components/protectedRoute/protectedRoute";
 import AuthProvider from "./contexts/authContext";
 import LoginPage from "./pages/loginPage";
 import PersonCreditPage from "./pages/personCreditPage";
+import TvReviewPage from "./pages/tvReviewPage";
 
 
 // // added temp for tv images
@@ -53,6 +54,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
+            <Route path="/tvreviews/:id" element={<TvReviewPage/>} />
             <Route path="/movieVideo/:id" element={<MovieVideoPage />} />
             <Route path="/credits/:id" element={<PersonCreditPage/>} />
             <Route path="/movies/favourites" element={
