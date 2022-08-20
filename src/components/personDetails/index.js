@@ -42,19 +42,15 @@ const useStyles = makeStyles((theme) => ({
 
 const PersonDetails = ({person}) => {
   const classes = useStyles();
-  // const person = props.person
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h4" component="h3">
         This Person is known for: {person.known_for_department}
       </Typography>
 
-  
-
-
-      <Typography variant="h5" component="h3">
+      <Typography variant="h6" component="h3">
         Biography
       </Typography>
       
@@ -63,16 +59,6 @@ const PersonDetails = ({person}) => {
         {person.biography}
       </Typography>
       <div className={classes.chipRoot}>
-      {/* <Paper component="ul" className={classes.chipSet}>
-        <li>
-          <Chip label="Genres" className={classes.chipLabel} color="primary" />
-        </li>
-        {movie.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-        ))}
-      </Paper> */}
       <Paper component="ul" className={classes.chipSet}>
       
 

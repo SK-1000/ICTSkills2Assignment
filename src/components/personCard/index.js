@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
-import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
@@ -29,12 +28,7 @@ const useStyles = makeStyles({
 
 export default function PersonCard({person}) {
   const classes = useStyles();
-  // const person = props.person;
-  
-  // const handleAddToFavourite = (e) => {
-  //   e.preventDefault();
-  //   props.selectFavourite(person.id);
-  //   };
+
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -77,9 +71,6 @@ export default function PersonCard({person}) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        {/* <IconButton aria-label="add to favorites" onClick={null}>
-          <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton> */}
 
         <Link to={`/persons/${person.id}`}>
           <Button variant="outlined" size="medium" color="primary">

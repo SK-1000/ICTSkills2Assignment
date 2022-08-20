@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
 
 const PersonListPageTemplate = ({ persons, title }) => {
   const classes = useStyles();
-//  const [persons, setPersons] = useState([]);
   const [nameSort, setNameSort] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
 

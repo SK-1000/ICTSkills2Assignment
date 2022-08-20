@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import TextField from "@material-ui/core/TextField";
+
 import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
@@ -44,34 +44,6 @@ export default function FilterPersonsCard(props) {
   return (
     <>
     <Card className={classes.root} variant="outlined">
-      {/* <CardContent>
-        <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
-          Filter People.
-        </Typography>
-        <TextField
-          className={classes.formControl}
-          id="filled-search"
-          label="Search field"
-          type="search"
-          variant="filled"
-        />
-        <FormControl className={classes.formControl}>
-          <InputLabel id="knownfor-label">Known For:</InputLabel>
-          <Select
-            labelId="knownfor-label"
-            id="knownfor-select"
-          >
-            {knownfors.map((knownfor) => {
-              return (
-                <MenuItem key={knownfor.id} value={knownfor.id}>
-                  {knownfor.title}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
-      </CardContent> */}
     </Card>
     <Card className={classes.root} variant="outlined">
         <CardContent>

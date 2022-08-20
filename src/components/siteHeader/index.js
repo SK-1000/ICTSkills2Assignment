@@ -130,7 +130,7 @@ const SiteHeader = () => {
                   isActive ? classes.activeLink : classes.inactiveLink
                 }
                   color="inherit"
-                  // onClick={() => handleMenuSelect(opt.path)}
+                  
                 >
                   {opt.label}
                 </NavLink> 

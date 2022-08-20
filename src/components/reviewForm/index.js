@@ -92,7 +92,7 @@ const ReviewForm = ({ movie }) => {
       <Typography component="h2" variant="h3">
         Write a review
       </Typography>
-      {/* Start new code */}    
+        
       <Snackbar
         className={classes.snack}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -109,7 +109,7 @@ const ReviewForm = ({ movie }) => {
           </Typography>
         </MuiAlert>
       </Snackbar>
-      {/* End new code */}    
+       
       <form
         className={classes.form}
         onSubmit={handleSubmit(onSubmit)}

@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 import IconButton from "@material-ui/core/IconButton";
-// import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
-// import FavoriteIcon from "@material-ui/icons/Favorite";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 
 const AddToMustWatchIcon = ({ movie }) => {
