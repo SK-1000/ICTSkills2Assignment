@@ -6,10 +6,7 @@ import FantasyMovieForm from "../components/fantasyMovieForm";
 
 
 const CreateFantasyMoviePage = (props) => {
-  
-    
-    
-   
+
   
   
     return (  

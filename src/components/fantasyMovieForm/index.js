@@ -18,6 +18,9 @@ import Box from "@material-ui/core/Box";
 import { useForm } from "react-hook-form";
 import { MoviesContext } from "../../contexts/moviesContext";
 import MenuItem from "@material-ui/core/MenuItem";
+import Snackbar from "@material-ui/core/Snackbar"; 
+import MuiAlert from "@material-ui/lab/Alert";
+import {useNavigate} from 'react-router-dom'
 
 
 const genres = [
@@ -62,6 +65,12 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     marginRight: theme.spacing(2),
   },
+  snack: {
+    width: "50%",
+    "& > * ": {
+      width: "100%",
+    },
+  },
 }));
 
 const FantasyMovieForm = ({ movie }) => {
@@ -69,14 +78,21 @@ const FantasyMovieForm = ({ movie }) => {
   const { register, handleSubmit, errors, reset } = useForm();
   const context = useContext(MoviesContext);
   const [rating, setRating] = useState(3);
+  const [open, setOpen] = useState(false);  //NEW
+  const navigate = useNavigate()
 
   const handleRatingChange = (event) => {
     setRating(event.target.value);
   };
 
-  const onSubmit = (review) => {
-    review.movieId = movie.id;
-    review.rating = rating;
+  const handleSnackClose = (event) => {     
+    setOpen(false);
+    navigate("/");
+  };
+
+  const onSubmit = (fantasymovie) => {
+    context.addFantasyMovie(movie, fantasymovie);
+    setOpen(true);
   };
 
   return (
@@ -88,6 +104,24 @@ const FantasyMovieForm = ({ movie }) => {
       <Typography component="h2" variant="h3">
         Create your Fantasy movie below
       </Typography>
+
+      <Snackbar
+        className={classes.snack}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={open}
+        onClose={handleSnackClose}
+      >
+        <MuiAlert
+          severity="success"
+          variant="filled"
+          onClose={handleSnackClose}
+        >
+          <Typography variant="h4">
+            Thank you for sharing your fantasy movie
+          </Typography>
+        </MuiAlert>
+      </Snackbar>
+
       <form
         className={classes.form}
         onSubmit={handleSubmit(onSubmit)}
@@ -98,13 +132,13 @@ const FantasyMovieForm = ({ movie }) => {
           variant="outlined"
           margin="normal"
           required
-          id="author"
+          id="title"
           label="Fantasy movie name"
-          name="fantasy movie name"
+          name="title"
           autoFocus
           inputRef={register({ required: "Fantasy movie name required" })}
         />
-        {errors.author && (
+        {errors.title && (
           <Typography variant="h6" component="p">
             {errors.title.message}
           </Typography>
@@ -128,9 +162,6 @@ const FantasyMovieForm = ({ movie }) => {
         </TextField>
 
 
-
-
-
         <TextField
           variant="outlined"
           margin="normal"
@@ -138,15 +169,15 @@ const FantasyMovieForm = ({ movie }) => {
           fullWidth
           name="overview"
           label="overview of fantasy movie story"
-          id="content"
+          id="overview"
           multiline
-          minRows={10}
+          minRows={5}
           inputRef={register({
-            required: "No overview",
-            minLength: { value: 10, message: "Review is too short" },
+            required: "No overview provided, please enter fantasy movie overview",
+            minLength: { value: 10, message: "Overview is too short" },
           })}
         />
-        {errors.content && (
+        {errors.overview && (
           <Typography variant="h6" component="p">
             {errors.overview.message}
           </Typography>
@@ -169,8 +200,8 @@ const FantasyMovieForm = ({ movie }) => {
             className={classes.submit}
             onClick={() => {
               reset({
-                author: "",
-                content: "",
+                title: "",
+                overview: "",
               });
             }}
           >
