@@ -22,6 +22,7 @@ import AuthProvider from "./contexts/authContext";
 import LoginPage from "./pages/loginPage";
 import PersonCreditPage from "./pages/personCreditPage";
 import TvReviewPage from "./pages/tvReviewPage";
+import AddFantasyMoviePage from './pages/addFantasyMoviePage'
 
 
 // // added temp for tv images
@@ -64,6 +65,7 @@ const App = () => {
             } 
             />
             <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/fantasymovie/form" element={<AddFantasyMoviePage/>} />
             <Route path="/persons/:id" element={<PersonDetailsPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/persons" element={<PersonPage />} />
