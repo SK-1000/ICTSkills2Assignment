@@ -1,31 +1,51 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import React from "react";
 import PageTemplate from '../components/templateTvListPage'
+import { useQuery } from 'react-query'
+import Spinner from '../components/spinner'
+import {getTvShows} from '../api/tmdb-api'
 
 const TvListPage = (props) => {
-  const [tvShows, setTvShows] = useState([]);
-  const favourites = tvShows.filter(m => m.favourite)
+  const {  data, error, isLoading, isError }  = useQuery('discovertv', getTvShows)
+
+  if (isLoading) {
+    return <Spinner />
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>
+  }  
+  const tvShows = data.results;
+
+  // These three lines are redundant; we will replace them laterg.
+  const favourites = tvShows.filter(m => m.favouurite)
   localStorage.setItem('favourites', JSON.stringify(favourites))
+  const addToFavourites = (tvshowId) => true 
 
-  const addToFavourites = (tvId) => {
-    const updatedTvShows = tvShows.map((m) =>
-      m.id === tvId ? { ...m, favourite: true } : m
-    );
-    setTvShows(updatedTvShows);
-  };
+//   const [tvShows, setTvShows] = useState([]);
+//   const favourites = tvShows.filter(m => m.favourite)
+//   localStorage.setItem('favourites', JSON.stringify(favourites))
 
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&page=1`
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        return json.results;
-      })
-      .then((tvShows) => {
-        setTvShows(tvShows);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+//   const addToFavourites = (tvId) => {
+//     const updatedTvShows = tvShows.map((m) =>
+//       m.id === tvId ? { ...m, favourite: true } : m
+//     );
+//     setTvShows(updatedTvShows);
+//   };
+
+//   useEffect(() => {
+//     fetch(
+//       `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&page=1`
+//     )
+//       .then((res) => res.json())
+//       .then((json) => {
+//         return json.results;
+//       })
+//       .then((tvShows) => {
+//         setTvShows(tvShows);
+//       });
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, []);
 
   return (
     <PageTemplate
