@@ -46,12 +46,26 @@ export const getMovie = (args) => {
  });
 };
 
+// export const getPersons = () => {
+//   return fetch(
+//     `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1`
+//   )
+//     .then(res => res.json())
+//     .then(json => json.results);
+// };
+
 export const getPersons = () => {
   return fetch(
     `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1`
-  )
-    .then(res => res.json())
-    .then(json => json.results);
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+     throw error
+  });
 };
 
 export const getPerson = id => {
@@ -66,7 +80,7 @@ export const getPerson = id => {
 
 
 export const getTv = (args) => {
-  // console.log(args)
+  console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(

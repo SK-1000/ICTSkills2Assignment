@@ -1,11 +1,9 @@
 import React, {useState, useEffect}  from "react";
 import { useParams } from "react-router-dom";
 import TvDetails from "../components/tvDetails";
-// import PageTemplate from "../components/templateMoviePage";
-// import useMovie from "../hooks/useMovie";
-// import { getTvShows } from '../api/tmdb-api'
-// import { useQuery } from "react-query";
-// import Spinner from '../components/spinner'
+import { getTv} from '../api/tmdb-api'
+import { useQuery } from "react-query";
+import Spinner from '../components/spinner'
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
@@ -19,39 +17,37 @@ const useStyles = makeStyles({
     },
   });
 
-const TvDetailsPage = (props) => {
-    const classes = useStyles();
-    const { id } = useParams();
-    const [tv, setTv] = useState(null);
-    const [images, setImages] = useState([]);
-  
-    useEffect(() => {
-      fetch(
-        `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-      )
-        .then((res) => {
-          return res.json();
-        })
-        .then((tv) => {
-          console.log(tv)
-          setTv(tv);
-        });
-    }, [id]);
-  
-    useEffect(() => {
-      fetch(
-        `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
-      )
-        .then((res) => res.json())
-        .then((json) => json.posters)
-        .then((images) => {
-        //   console,log(images)
-          setImages(images);
-        });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+const TvDetailsPage = () => {
+  const { id } = useParams();
+  const classes = useStyles();
+  const [images, setImages] = useState([]);
+  const { data: tv, error, isLoading, isError } = useQuery(
+    ["tv", { id: id }],
+    getTv
+  );
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    )
+      .then((res) => res.json())
+      .then((json) => json.posters)
+      .then((images) => {
+      //   console,log(images)
+        setImages(images);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+    
     return (
         <>
           {tv ? (

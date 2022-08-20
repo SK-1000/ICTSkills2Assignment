@@ -10,6 +10,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -27,10 +28,11 @@ export default function FilterPersonsCard(props) {
   const classes = useStyles();
 
   const knownfors = [
-    {id: 1, title: "Annie"},
-    {id: 2, title: "Big Daddies house"},
-    {id: 3, title: "The Devils Advocate"}
+    {id: 1, title: "Ana de Armas"},
+    {id: 2, title: "Tom Holland"},
+    {id: 3, title: "Jennifer Connelly"}
   ]
+  // sorting functionality not complete
 
   const handleChange = (e, type, value) => {
     e.preventDefault()
