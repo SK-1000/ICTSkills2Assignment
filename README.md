@@ -1,5 +1,5 @@
 
-# ICT Skills 2 Assignment.
+# ICT Skills 2 Assignment
 
 Name: [Sheila Kirwan]
 
@@ -25,25 +25,74 @@ e.g.
 [List the set of routes your app supports - only mention new instances if you expanded the Movies Fan app. State the view linked with each route.] 
 
 e.g.
-+ /movies/:id - detailed information on a specific movie.
-+ /movies/upcoming - lists movies soon to be shown in cinemas.
-+ etc.
-+ etc.
++ /login - route to login page
++ /reviews/form - route to form to add reviews
++ /reviews/:id - route to specific movie review
++ "/" - homepage which is essentially moviepage
++ /movies/:id - route to a specified movie based on id
++ /movies/upComing - route to an upcoming movie page that displays all upcoming movies
++ /movies/favourites - route to favourites page which displays all favourites
++ /movieVideo/:id - route to a specified movie video based on id
++ /fantasymovie/form - route to form to add your fantasy movie
++ /movies/mustwatch - route to Must watch page which displays all seleced must watch movies
++ /persons - route to person page which displays all actors
++ /persons/:id - route to a specified person/actor based on id
++ /credits/:id - route to a credit relating to a specific actor based on id
++ "/tv - route to tv show page which displays all tv show
++ /tvShows/:id - route to a specified tv show based on id
++ /tvreviews/:id - route to specific tv review
+
+
 
 ### Views/Pages.
 
 [ For each view in your app, show a screenshot and caption - only new/modified ones in the case of the Movies Fan app. If necessary, use multiple screenshots to cover a view's full capability.
 
-e.g.
->Lists movies from the Discover endpoint. Filtering on title and genre attributes is supported.
+All navigation arrows working thoughout.
 
-![][d1]
+>Lists movies from the Discover endpoint. Filtering on title and genre attributes is supported. Movies can also be tagged as favourites and have release date and popularity detailed
 
-![][d2]
+![](src/screenshots/homepage.png)
 
->Shows detailed information on a specific movie
+>Shows detailed information on a specific movie as well as a list of similar movies. Hyperlink to homepage of movie on header. Each Similar movie item has a hyperlink to a video page to see a video of the similar movie. 
 
-![][detail]
+![](src/screenshots/moviedetailspage.png)
+
+>when a user clicks on the reviews FAB, a materials  ui drawer is expanded describing, Author, except and full Review hyperlink
+
+![](src/screenshots/moviereviewsdrawer.png)
+
+>from the movie details page, the user can select to see a video of the similar movie selected.
+
+![](src/screenshots/videopagesimilarmovie.png)
+
+
+>Lists People from the discoverperson endpoint. attempted sort by name. person details such as id and popularity rating are displayed on the person cards as well as a hyperlink to "more info on this person"
+
+![](src/screenshots/personpage.png)
+
+>UI complete for sort by people but coding not complete
+
+![](src/screenshots/sortbypeople.png)
+
+
+>Shows detailed information on a specific person as well as a list of similar movies. Hyperlink to homepage of person on header. Has a FAB which leads to a drawer of credit information specific to that person
+
+![](src/screenshots/persondetailspage.png)
+
+
+>clicking on the credits FAB expands a drawer containing person info on title, Character and a hyperlink to see a a page dedicated to the details of that credit.
+
+![](src/screenshots/creditsdrawer.png)
+
+>clicking on the hyperlink on a particular credit displays a page dedicated to info and an image of that movie as well as the person who was in it.
+
+![](src/screenshots/personcreditpage.png)
+
+
+
+
+
 
 
 ### Component catalogue.
