@@ -196,39 +196,71 @@ e.g.
 [ List the TMDB server state cached by the app. Include a screenshot(s) of the react-query dev tools to validate your list.]
 
 
-+ movies (discover)
-+ Movie details (movie)
++ movies (discover) 
++ Movie details (movie) 
 + tv (discovertv) 
-+ tv details (tv)
++ tv details (tv) 
 + person (discover person) 
-+ person detail (person)
-+ upcoming movies (upcoming)
-+ add movie review page (movie review)
-+ template video page (videos)
-+ template tv page (tv images)
-+ template movie page (movie images)
-+ template person page (person images)
-+ filter tv shows card (tv genres)
-+ filter movies card (moviegenres)
++ person detail (person) 
++ upcoming movies (upcoming) 
++ add movie review page (movie review) 
++ template video page (videos) attempted not working
++ template tv page (tv images) 
++ template movie page (movie images) 
++ template person page (person images) 
++ filter tv shows card (tv genres) 
++ filter movies card (movie genres) 
 
->react tool screenshots of caching for following steps
+>react tool screenshots of caching for following steps relating to movies
 1. I refreshed the homepage (discover)
 2. I clicked on filter (movie genres)
 3. I selected a view movie details page (movie & movie images)
+see below:
+![](src/screenshots/moviesreact.png)
 
 
+>react tool screenshots of caching for following steps relating to tv
+1. I refreshed the tv page (discovertv)
+2. I clicked on filter (tv genres)
+3. I selected a view movie details page (tv)
+4. I selected a tv review (tv images)
+see below:
+![](src/screenshots/tvreact.png)
+
+>react tool screenshots of caching for following steps relating to People
+1. I refreshed the person page (discover person)
+2. I selected a view movie details page (person & person images)
+see below:
+![](src/screenshots/personreact.png)
+
+>react tool screenshots of caching for following steps relating to upcoming movies
+1. I refreshed the upcoming page (upcoming)
+2. I clicked on filter (movie genres)
+3. I selected a view movie details page (movie & movie images)
+see below:
+![](src/screenshots/personreact.png)
+![](src/screenshots/upcoming&moviesreact.png)
 
 
+>react tool screenshots of caching for following steps relating to adding a review
+1. I refreshed the homepage (discover)
+2. I tagged a favourite
+3. I clicked on favourites page
+4. I clicked on add review icon (movie review and movie images)
+3. 
+see below:
+![](src/screenshots/addreviewreact.png)
 
-![][caching]
+
 
 ## Authentication (if relevant).
 
 [Briefly state how you implemented authentication for the app, e.g. basic, Firebase, etc. Also, list the routes that are private/protected.]
 
-e.g.
-+ /reviews/:id
+I did a basic Authentication model on my app as discribed in sample 8 in the labs however I updated the UI and ensured it fit in well with the look and feel of the website. I used a react context file to store current authenticated user. I used programmatic navigation to redirect unauthenticated users to the login page and remembered the users intent before forced authentications so they don't have to navigate back to the page they were going to in the first place.
+
 + /movies/favourites
++ /movies/mustwatch
 
 ## Server-side persistence (if relevant)
 
@@ -241,9 +273,15 @@ platform your app uses (e.g. TMDB lists, Firestore) and itemize the data it pers
 
 ## Independent learning (if relevant),
 
+
+
 [Briefly explain any aspects of your assignment work that required independent learning (i.e. not addressed in the lectures or labs) on your behalf., e.g. 3rd-party components, libraries, tools. Include source code references.]
 
-[d1]: ./public/discover1.png
++ Use of a mediacard to display a video
+
+
+
+[video]: https://smartdevpreneur.com/four-examples-of-material-ui-cardmedia/#Resources
 [d2]: ./public/discover2.png
 [detail]: ./public/detail.png
 [caching]: ./public/caching.png
