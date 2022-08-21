@@ -150,7 +150,7 @@ All navigation arrows working thoughout.
 [ Use the Storybook UI to highlight the new components for which you developed stories.]
 e.g.
 
->I have completed 17 stories in total, 6 of these related to movie and the remainder to the tv and person pages. Below I'm showing the additional stories that I added.
+>I have completed 17 stories in total, 6 of these related to movie and the remainder to the tv and person pages. Below I'm showing the additional stories that I added or updated. 
 
 ![](src/screenshots/allstories.png)
 
@@ -195,11 +195,30 @@ e.g.
 
 [ List the TMDB server state cached by the app. Include a screenshot(s) of the react-query dev tools to validate your list.]
 
-e.g.
-+ Discover movies (pagination support)
-+ Movie details
- + etc
-+ etc
+
++ movies (discover)
++ Movie details (movie)
++ tv (discovertv) 
++ tv details (tv)
++ person (discover person) 
++ person detail (person)
++ upcoming movies (upcoming)
++ add movie review page (movie review)
++ template video page (videos)
++ template tv page (tv images)
++ template movie page (movie images)
++ template person page (person images)
++ filter tv shows card (tv genres)
++ filter movies card (moviegenres)
+
+>react tool screenshots of caching for following steps
+1. I refreshed the homepage (discover)
+2. I clicked on filter (movie genres)
+3. I selected a view movie details page (movie & movie images)
+
+
+
+
 
 ![][caching]
 

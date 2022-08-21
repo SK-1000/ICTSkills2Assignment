@@ -9,7 +9,7 @@ import { useQuery } from 'react-query'
 const PersonPage = (props) => {
 
 
-  const {  data, error, isLoading, isError }  = useQuery('discoverperson', getPersons)
+  const {  data, error, isLoading, isError }  = useQuery('discover person', getPersons)
 
   if (isLoading) {
     return <Spinner />

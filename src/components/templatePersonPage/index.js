@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const TemplatePersonPage = ({ person, children }) => {
   const classes = useStyles();
   const { data , error, isLoading, isError } = useQuery(
-    ["images", { id: person.id }],
+    ["person images", { id: person.id }],
     getPersonImages
   );
 

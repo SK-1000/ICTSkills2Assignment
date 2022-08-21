@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 const TemplateMoviePage = ({ movie, children }) => {
   const classes = useStyles();
   const { data , error, isLoading, isError } = useQuery(
-    ["images", { id: movie.id }],
+    ["movie images", { id: movie.id }],
     getMovieImages
   );
 

@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FilterTvShowsCard(props) {
   const classes = useStyles();
-  const { data, error, isLoading, isError } = useQuery("genres", getTvGenres);
+  const { data, error, isLoading, isError } = useQuery("tv genres", getTvGenres);
 
   if (isLoading) {
     return <Spinner />;

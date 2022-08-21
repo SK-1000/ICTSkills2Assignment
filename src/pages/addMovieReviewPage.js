@@ -10,7 +10,7 @@ const WriteReviewPage = (props) => {
   const location = useLocation()
   const { movieId } = location.state;
   const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: movieId }],
+    ["movie review", { id: movieId }],
     getMovie
   );
 
