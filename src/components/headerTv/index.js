@@ -34,9 +34,9 @@ const TvHeader = (props) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
+      <br></br>
+    
         {tv.name}
-
-        {/* comment: NEED TO UPDATE THE HOMEPAGE ICON TO ANOTHER HREF */}
         <a href={tv.homepage}>
           <HomeIcon color="primary" />
         </a>

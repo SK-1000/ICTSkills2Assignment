@@ -50,7 +50,7 @@ e.g.
 
 All navigation arrows working thoughout.
 
->Lists movies from the Discover endpoint. Filtering on title and genre attributes is supported. Movies can also be tagged as favourites and have release date and popularity detailed
+>Lists movies from the Discover endpoint. Filtering on title and genre attributes is supported. Movies can also be tagged as favourites and have release date and vote average detailed
 
 ![](src/screenshots/homepage.png)
 
@@ -90,8 +90,45 @@ All navigation arrows working thoughout.
 ![](src/screenshots/personcreditpage.png)
 
 
+>Lists Tv Shows from the discovertv endpoint. Filtering on title and genre attributes is supported. Tv show cards display origin country and vote average
+
+![](src/screenshots/tvpage.png)
+
+![](src/screenshots/tvshowfilter.png)
+
+>Shows detailed information on a specific tv show. The header includeds show name original language and a Hyperlink to homepage of show on header. Has a FAB which leads to a drawer of reviews specific to that tv show.
+
+![](src/screenshots/tvshowdetails.png)
+
+![](src/screenshots/tvshowreviewsdrawer.png)
+
+![](src/screenshots/tvreviewpage.png)
 
 
+>Shows the create Fantasy movie form page, this page allows the user to enter a fantasy movie name, Genre and overview of the story and submit it. A snackbar message is displayed. Validation is also included
+
+![](src/screenshots/createfantasymoviepage.png)
+![](src/screenshots/validation.png)
+![](src/screenshots/snackbar.png)
+
+
+
+>Upcoming movies in a protected page and hence a login is required. 
+
+![](src/screenshots/login.png)
+
+
+>User is now authenticated as you will see by the welcome message in the next screenshot of upcoming movies page
+
+>The upcoming movies page shows a list of upcoming movies, It also has a hyperlink to more info on the movie and an Icon so that the upcoming movie can be tagged as a must watch. (This tagging is not working correctly). each movie shows release date and vote average. There is also filtering by genre and a search field by title.
+
+![](src/screenshots/upcomingmovies.png)
+![](src/screenshots/filterupcoming.png)
+
+
+>Shows detailed information on a specific upcoming as well as a list of similar movies. Hyperlink to homepage of movie on header as well as title. Each Similar movie item has a hyperlink to a video page to see a video of the similar movie. (movie ui complete but not playing)
+
+![](src/screenshots/upcomingmoviedetails.png)
 
 
 
