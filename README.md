@@ -129,6 +129,19 @@ All navigation arrows working thoughout.
 >Shows detailed information on a specific upcoming as well as a list of similar movies. Hyperlink to homepage of movie on header as well as title. Each Similar movie item has a hyperlink to a video page to see a video of the similar movie. (movie ui complete but not playing)
 
 ![](src/screenshots/upcomingmoviedetails.png)
+![](src/screenshots/upcomingmoviereviewdrawer.png)
+![](src/screenshots/upcomingmovie%20review%20page.png)
+![](src/screenshots/upcomingmovievideopage.png)
+
+>The Favourites page displays any movies which were tagged as favourites on the movies page. The movies card has two additional icons. One to remove movie from favourites and the other to write a review of the movie
+
+![](src/screenshots/favouritespage.png)
+
+![](src/screenshots/writereview.png)
+
+>The Must Watch page should show any movies selected by clicking the add to playlist icon in the upcoming movies list however I tried to code it similarly to favourites page but couldnt get it working. This is the ui
+
+![](src/screenshots/mustwatchpage.png)
 
 
 
@@ -137,7 +150,46 @@ All navigation arrows working thoughout.
 [ Use the Storybook UI to highlight the new components for which you developed stories.]
 e.g.
 
-![][stories]
+>I have completed 17 stories in total, 6 of these related to movie and the remainder to the tv and person pages. Below I'm showing the additional stories that I added.
+
+![](src/screenshots/allstories.png)
+
+>filterPersonsCard
+![](src/screenshots/filterpersonscard.png)
+
+>PersonsCard
+![](src/screenshots/personcardstory.png)
+
+>PersonHeader - error message due to issue
+![](src/screenshots/personheaderissuestory.png)
+
+>filterTvShowCard
+![](src/screenshots/filtertvshowstory.png)
+
+>TvCardstory - note that in my sampletvdata.js, the movie Marvels Daredevil had no associated jpg so I updated the sampletvdata.js with a jpeg from cobra Kai which worked fine.
+![](src/screenshots/tvcardstory.png)
+
+
+>MovieDetails - I updated this story because I updated the page with a similar movies table.
+![](src/screenshots/moviedetailsstory.png)
+
+
+>PersonDetails 
+![](src/screenshots/persondetailsstory.png)
+
+
+
+>TvDetails 
+![](src/screenshots/tvdetailsstory.png)
+
+
+>TvHeader
+![](src/screenshots/tvheaderstory.png)
+
+
+>AppHeader - didn't run successfully due to the following error
+![](src/screenshots/appheadererror.png)
+
 
 ## Caching.
 

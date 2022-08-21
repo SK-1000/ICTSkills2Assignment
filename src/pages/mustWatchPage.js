@@ -8,7 +8,7 @@ import RemoveFromMustWatch from "../components/cardIcons/removeFromMustWatch";
 import WriteReview from "../components/cardIcons/writeReview";
 
 
-// THIS CODE NEEDS TO BE UPDATED. IT IS A DUPLICATE OF favouriteMoviesPage
+// THIS CODE NEEDS TO BE UPDATED. IT IS A DUPLICATE OF favouriteMoviesPage at the moment
 const MustWatchPage = () => {
   const { favourites: movieIds } = useContext(MoviesContext);
 
