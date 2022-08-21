@@ -1,5 +1,5 @@
 export default {
-"poster_path":"/dDfjzRicTeVaiysRTwx56aM8bC3.jpg",
+"poster_path":"/6POBWybSBDBKjSs1VAQcnQC1qyt.jpg",
 "popularity":5.4,
 "id":61889,
 "backdrop_path":null,
