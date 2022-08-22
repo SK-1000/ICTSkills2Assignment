@@ -344,7 +344,6 @@ All features have been mentioned above
 
 ## Independent learning (if relevant),
 
-
 [Briefly explain any aspects of your assignment work that required independent learning (i.e. not addressed in the lectures or labs) on your behalf., e.g. 3rd-party components, libraries, tools. Include source code references.]
 
 + Use of a mediacard to display a video
