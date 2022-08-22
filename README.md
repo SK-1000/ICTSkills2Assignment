@@ -1,22 +1,54 @@
 
 # ICT Skills 2 Assignment
 
-Name: [Sheila Kirwan]
+Name: Sheila Kirwan
 
 ## Overview.
 
-[ A paragraph on your React app's concept followed by a bullet-point list of its feature set - only list new/modified features if you are expanding the Movies app. ]
 
-e.g. 
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
+This app allows users to view information on movies, tv shows and people from the movie world, Users can also see a list of upcoming movies, tag a favourite movie and view that movie on the favourites page. Movies, TV, people all have related details pages. 
+
+e.g.
+
+
++ Feature 1 - I have added a page that displays a list of current tv shows, for each one, I have shown a poster image, title, origin country and vote average as well as a hyperlink to "about the show" page. This page can be filtered by tv genre or searched by name.
+
++ Feature 2 - I have also created a detailed information tv show page which can be accessed from the hyperlink on the page above. The header includes tvshow name, homepage icon hyperlink, images of the tv show, list of genres relating to the show, release date, origin country, tv vote average. This page contains a floating action button (fab) displaying extracts of tv show reviews. 
+
++ Feature 3 - user can click on review to see full review page
+
++ Feature 4 - I have added a page that displays a list of actors/people, for each person, I have shown a poster image, title, id and popularity as well as a hyperlink to "info about this person" page. I also attempted sorting by person, the UI is complete but code was not successful.
+
++ Feature 5 - I have also created a detailed information for a person which can be accessed from the hyperlink on the page above. The header includes person name, homepage icon hyperlink, what part of the media business they are known for, a biography and popularity rating. 
+
++ Feature 6 - This person details page also contains a floating action button (fab) called credits which when clicked displays a dropdown drawer with a table containing title, character and "link to see more details on the credit" for all credits relating to the person.
+
++ Feature 7 - A user can click on a hyperlink relating to a particular credit to view the full credit details including title, release date overview and type of media for credit and also an image relating to that credit and an image of the person the credit relates to.
+
+
++ Feature 8 - A user can click on create movie in the navigation menu and a create fantasy movie form page is displayed. This allows the user to input fantasy movie title, select a genre and enter an overview of the fantasy movie. The user can submit or reset the page. validation is included and a snackbar message once submitted. The user is then returned to the homepage.
+
++ feature 9 - I have added an addition to the movie details page. It is a "Similar movies" table which contains the movie name, a description and a " click here to see video hyperlink" which brings the user to a page where they can view a short video of the similar movie they are interested in. They can also see movie id and name on this page.
+
++ Feature 10 - The app has basic authentication. I created a simple log in page which will be displayed when a user either attempts to click into a protected page (upcoming movies or favourites) or if the user logs in on the header bar on the far left side of the page.
+
++ Feature 11 - The app has a must have page. The intention is that a user can select an upcoming movie by clicking the add to playlist icon button and this movie will then be displayed on the must watch page. I attempted this code many time by using the same stucture addtofavourites but didn't get there in the end. The must have page will display but not anything that is added.
+
 
 ## Setup requirements.
 
 [ Briefly state (to a third party) the setup steps necessary to run your app/client locally, e.g. .env and any other config files.]
+
++ Open a terminal and run npm install
++ Register with TMDB API, set up an account to create an API Key which will authenticate all requests to the API.
++ In Vscode, at the project base folder, create a .env file and set REACTAPPTMDB_KEY to your new key value.
+
+REACT_APP_TMDB_KEY=.... your API key value ...
+FAST_REFRESH=false
+
++ In the terminal install and ensure you can run the storybook server. npm run storybook to run.
+
+
 
 ## App Design.
 
@@ -48,7 +80,7 @@ e.g.
 
 [ For each view in your app, show a screenshot and caption - only new/modified ones in the case of the Movies Fan app. If necessary, use multiple screenshots to cover a view's full capability.
 
-All navigation arrows working thoughout.
+All navigation arrows are working thoughout.
 
 >Lists movies from the Discover endpoint. Filtering on title and genre attributes is supported. Movies can also be tagged as favourites and have release date and vote average detailed
 
@@ -112,7 +144,6 @@ All navigation arrows working thoughout.
 ![](src/screenshots/snackbar.png)
 
 
-
 >Upcoming movies in a protected page and hence a login is required. 
 
 ![](src/screenshots/login.png)
@@ -144,11 +175,50 @@ All navigation arrows working thoughout.
 ![](src/screenshots/mustwatchpage.png)
 
 
-
 ### Component catalogue.
 
-[ Use the Storybook UI to highlight the new components for which you developed stories.]
-e.g.
+list of components:
+cardIcons - new icons included
+fakeAuth - new
+fantasyMovieForm - new
+filterMoviesCard
+filterPersonsCard - new
+filterTvShowsCard -new
+headerMovie
+headerMovieList
+headerPerson - new
+headerPersonList - new
+headerTv - new
+headerTvList - new 
+movieCard
+movieDetails
+movieList
+movieReview
+movieReviews
+movieVideo - new
+personCard - new
+personCredit - new
+personCredits -new
+personDetails - new
+personList -new
+protectedRoute - new
+reviewForm
+similarMovies - new
+siteHeader
+spinner
+templateMovieListPage
+templateMoviePage
+templatePersonListPage - new
+templatePersonPage - new
+templateTvListPage - new
+templateTvPage - new
+templateVideoPage - new
+tvCard -new
+tvDetails - new
+tvList - new
+tvReview - new
+tvReviews - new
+
 
 >I have completed 17 stories in total, 6 of these related to movie and the remainder to the tv and person pages. Below I'm showing the additional stories that I added or updated. 
 
@@ -257,32 +327,28 @@ see below:
 
 [Briefly state how you implemented authentication for the app, e.g. basic, Firebase, etc. Also, list the routes that are private/protected.]
 
-I did a basic Authentication model on my app as discribed in sample 8 in the labs however I updated the UI and ensured it fit in well with the look and feel of the website. I used a react context file to store current authenticated user. I used programmatic navigation to redirect unauthenticated users to the login page and remembered the users intent before forced authentications so they don't have to navigate back to the page they were going to in the first place.
+I implemented a basic Authentication model on my app as discribed in sample 8 in the labs however I updated the UI and ensured it fit in well with the look and feel of the website. I used a react context file to store current authenticated user. I used programmatic navigation to redirect unauthenticated users to the login page and remembered the users intent before forced authentications so they don't have to navigate back to the page they were going to in the first place.
 
 + /movies/favourites
 + /movies/mustwatch
 
 ## Server-side persistence (if relevant)
 
-[ Specify the persistence 
-platform your app uses (e.g. TMDB lists, Firestore) and itemize the data it persists.]
+ Unfortunatly, I did not have enough time to attempt this.
 
 ## Additional features (if relevant),
 
 [Mention any additional user features of your app that may not be obvious from the previous sections, e.g. pagination, extended filtering/sorting, searching.]
 
-## Independent learning (if relevant),
+All features have been mentioned above
 
+## Independent learning (if relevant),
 
 
 [Briefly explain any aspects of your assignment work that required independent learning (i.e. not addressed in the lectures or labs) on your behalf., e.g. 3rd-party components, libraries, tools. Include source code references.]
 
 + Use of a mediacard to display a video
 
-
-
 [video]: https://smartdevpreneur.com/four-examples-of-material-ui-cardmedia/#Resources
-[d2]: ./public/discover2.png
-[detail]: ./public/detail.png
-[caching]: ./public/caching.png
-[stories]: ./public/stories.png
+
+All other aspects of my project were covered in the talks, labs or in the links to material ui provided in this module.
